@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: pihole
+  name: pihole
+spec:
+  selector:
+    io.kompose.service: pihole
+  ports:
+  - name: dns-tcp
+    port: 53
+    targetPort: 53
+  - name: dns-udp
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  - name: dhcp-udp
+    port: 67
+    protocol: UDP
+    targetPort: 67
+  - name: pihole-http
+    port: 8000
+    targetPort: 80
+  - name: pihole-https
+    port: 8443
+    targetPort: 443
+  externalIPs:
+  - 192.168.178.90
