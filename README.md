@@ -31,11 +31,11 @@ You might need to restart existing pods or services to make sure the new DNS set
 ### Setup
 Edit the following:
 - `ddns-update\godaddy-api-secret.yaml`: set a valid secret.
-- `ddns-update\ddns-update-pod.yaml`: set correct environmental variables for the GoDaddy domain.
+- `ddns-update\ddns-update-deployment.yaml`: set correct environmental variables for the GoDaddy domain.
 
 ### Deployment
 ```sh
 cd ddns-update
 kubectl -n services apply -f godaddy-api-secret.yaml
-kubectl -n services apply -f dns-update-pod.yaml
+kubectl -n services apply -f ddns-update-deployment.yaml
 ```
