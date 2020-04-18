@@ -2,9 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.21.0 (992df58d8)
-  creationTimestamp: null
   labels:
     io.kompose.service: pihole
   name: pihole
@@ -17,10 +14,6 @@ spec:
     type: Recreate
   template:
     metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yml
-        kompose.version: 1.21.0 (992df58d8)
-      creationTimestamp: null
       labels:
         io.kompose.service: pihole
     spec:
