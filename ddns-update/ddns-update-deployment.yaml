@@ -25,8 +25,8 @@ spec:
           preStop:
             exec:
               command: [
-                # Gracefully shutdown crond
-                "/bin/sh", "-c", "kill $(pidof crond)"
+                # Graceful shutdown
+                "/bin/sh", "-c", "/usr/bin/stop-me.sh"
               ]
         env:
         - name: FREQUENCY
